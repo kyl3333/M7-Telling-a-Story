@@ -20,7 +20,7 @@ var current_item_index := 0
 var dialogue_items: Array[Dictionary] = [
 	{
 		"expression": expressions["happy"],
-		"text": "I was minding my own business,",
+		"text": "[wave]I was minding my own business,[/wave]",
 		"character": bodies["sophia"],
 		
 	},
@@ -31,12 +31,12 @@ var dialogue_items: Array[Dictionary] = [
 	},
 	{
 		"expression": expressions["regular"],
-		"text": "Larry.",
+		"text": "[shake][b][u]Larry.[/u][/b][/shake]",
 		"character": bodies["pink"],
 	},
 	{
 		"expression": expressions["sad"],
-		"text": "He fatal errored all over my Godot project",
+		"text": "[i]He fatal errored all over my Godot project[/i]",
 		"character": bodies["sophia"],
 	},
 ]

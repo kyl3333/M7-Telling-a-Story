@@ -84,6 +84,7 @@ offset_right = -57.0
 offset_bottom = -481.0
 grow_horizontal = 2
 grow_vertical = 2
+bbcode_enabled = true
 text = "Pluh"
 fit_content = true
 
