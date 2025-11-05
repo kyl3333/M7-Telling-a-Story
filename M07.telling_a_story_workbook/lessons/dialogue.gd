@@ -6,6 +6,11 @@ extends Control
 @onready var next_button: Button = %NextButton
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
+var bodies := {
+	"sophia": preload ("res://assets/sophia.png"),
+	"pink": preload ("res://assets/pink.png")
+}
+
 var expressions := {
 	"happy": preload ("res://assets/emotion_happy.png"),
 	"regular": preload ("res://assets/emotion_regular.png"),
@@ -16,18 +21,23 @@ var dialogue_items: Array[Dictionary] = [
 	{
 		"expression": expressions["happy"],
 		"text": "I was minding my own business,",
-	},
-	{
-		"expression": expressions["regular"],
-		"text": "But all of the suddens...",
+		"character": bodies["sophia"],
+		
 	},
 	{
 		"expression": expressions["sad"],
+		"text": "But all of the suddens...",
+		"character": bodies["sophia"],
+	},
+	{
+		"expression": expressions["regular"],
 		"text": "Larry.",
+		"character": bodies["pink"],
 	},
 	{
 		"expression": expressions["sad"],
 		"text": "He fatal errored all over my Godot project",
+		"character": bodies["sophia"],
 	},
 ]
 
@@ -35,9 +45,11 @@ func show_text() -> void:
 	var current_item := dialogue_items[current_item_index]
 	rich_text_label.text = current_item["text"]
 	expression.texture = current_item["expression"]
+	body.texture = current_item["character"]
 	rich_text_label.visible_ratio = 0.0
 	var tween := create_tween()
-	var text_appearing_duration := 1.2
+	var current_text: String = current_item["text"]
+	var text_appearing_duration := current_text.length() / 30.0
 	tween.tween_property(rich_text_label, "visible_ratio", 1.0, text_appearing_duration)
 	var sound_max_offset := audio_stream_player.stream.get_length() - text_appearing_duration
 	var sound_start_position := randf() * sound_max_offset
