@@ -36,7 +36,7 @@ var dialogue_items: Array[Dictionary] = [
 	},
 	{
 		"expression": expressions["sad"],
-		"text": "[i]He fatal errored all over my Godot project[/i]",
+		"text": "[i]He fatal errored all over my Godot project[/i]		",
 		"character": bodies["sophia"],
 	},
 ]
